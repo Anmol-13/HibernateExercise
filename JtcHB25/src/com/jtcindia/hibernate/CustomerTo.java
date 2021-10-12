@@ -1,0 +1,87 @@
+package com.jtcindia.hibernate;
+
+public class CustomerTo {
+	private int cid;
+	private String cname;
+	private String email;
+	private Long phone;
+	private String city;
+	private String status;
+	
+	public CustomerTo() {
+	}
+
+	public CustomerTo(String cname, String email, Long phone, String city, String status) {
+		this.cname = cname;
+		this.email = email;
+		this.phone = phone;
+		this.city = city;
+		this.status = status;
+	}
+
+	public CustomerTo(int cid, String cname, String email, Long phone, String city, String status) {
+		this.cid = cid;
+		this.cname = cname;
+		this.email = email;
+		this.phone = phone;
+		this.city = city;
+		this.status = status;
+	}
+
+	public int getCid() {
+		return cid;
+	}
+
+	public void setCid(int cid) {
+		this.cid = cid;
+	}
+
+	public String getCname() {
+		return cname;
+	}
+
+	public void setCname(String cname) {
+		this.cname = cname;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Long getPhone() {
+		return phone;
+	}
+
+	public void setPhone(Long phone) {
+		this.phone = phone;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

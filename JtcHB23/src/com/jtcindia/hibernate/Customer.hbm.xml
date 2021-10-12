@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.jtcindia.hibernate">
+<class name="Customer" table="customers">
+<id name="cid" column ="cid" type="int" >
+<generator class="increment"/>
+</id>
+<property name="cname" column="cname"/>
+<property name="email" column="email" />
+<property name="phone" column="phone" type="long"/>
+<many-to-one name="ccard" class="CreditCard" column="ccid" unique="true"></many-to-one>
+<set name="orders" >
+<key column="cid"></key>
+<many-to-many class="Order"></many-to-many>
+
+</set>
+<joined-subclass name="SilverCustomer" table="scustomers">
+<key column="cid"></key>
+<property name="city"></property>
+<property name="rpoints" column="rpoints" type="int"></property>
+<property name="oemail"></property>
+</joined-subclass>
+
+<joined-subclass name="GoldCustomer" table="gcustomers">
+<key column="cid"></key>
+<property name="ophone" column="ophone" type="long"></property>
+<property name="points" column="points" type="int"></property>
+<map name="refs" table="refs">
+<key column="cid"></key>
+<index column="cname" type="string"></index>
+<element column="email" type="string"></element>
+</map>
+</joined-subclass>
+
+</class>
+</hibernate-mapping>

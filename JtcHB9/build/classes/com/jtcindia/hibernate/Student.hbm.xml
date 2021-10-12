@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.jtcindia.hibernate">
+	<class name="Student" table="mystudents1">
+		<id name="sid" column="sid" type="int">
+			<generator class="increment" />
+		</id>
+		<discriminator column="stutype"/>
+		
+		<property name="sname" column="sname" type="string" />
+		
+		<property name="city" column="city" type="string" />
+		
+		<property name="status" column="status" type="string" />
+		
+		<property name="totalfee" column="totalfee" type="double" />
+		</class>
+		
+		<class name="CurrentStudent" table="cstudents1">
+		<id name="sid" column="sid" type="int">
+			<generator class="increment" />
+		</id>
+		<property name="feebal" type="int"/>
+		<property name="timings" />
+		<property name="branch" />
+		</class>
+		
+		<class name="WeekdayStudent" table="wdstudents1">
+		<id name="sid" column="sid" type="int">
+			<generator class="increment" />
+		</id>
+		<property name="qualification"/>
+		<property name="percentage"/>
+		<property name="yop" type="double"/>
+		</class>
+		<class name="WeekendStudent" table="westudents1">
+		<id name="sid" column="sid" type="int">
+			<generator class="increment" />
+		</id>
+		<property name="wcompany"/>
+		<property name="wcemail"/>
+		<property name="wctc" type="double"/>
+		
+		</class>
+		
+		<class name="OldStudent" table="ostudents1">
+		<id name="sid" column="sid" type="int">
+			<generator class="increment" />
+		</id>
+		<property name="ocompany"></property>
+		<property name="ocemail"></property>
+		<property name="octc" type="double"></property>
+		</class>
+</hibernate-mapping>

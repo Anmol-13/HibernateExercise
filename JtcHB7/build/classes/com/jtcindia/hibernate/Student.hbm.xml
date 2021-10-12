@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.jtcindia.hibernate">
+
+
+	<class name="Student" table="jtcstudents" discriminator-value="STU">
+		<id name="sid" column="sid" type="int">
+			<generator class="increment" />
+		</id>
+		<discriminator column="stutype"/>
+		<property name="sname" column="sname" type="string" />
+		
+		<property name="city" column="city" type="string" />
+		
+		<property name="status" column="status" type="string" />
+		
+		<property name="totalfee" column="totalfee" type="double" />
+		
+		<subclass name="CurrentStudent" discriminator-value="CSTU">
+		<property name="feebal" type="int"/>
+		<property name="timings" />
+		<property name="branch" />
+		</subclass>
+		
+		<subclass name="WeekdayStudent" discriminator-value="WDSTU">
+		<property name="qualification"/>
+		<property name="percentage"/>
+		<property name="yop" type="double"/>
+		
+		</subclass>
+		
+		<subclass name="WeekendStudent" discriminator-value="WSTU">
+		<property name="wcompany"/>
+		<property name="wcemail"/>
+		<property name="wctc" type="double"/>
+		</subclass>
+		
+
+		<subclass name="OldStudent" discriminator-value="OSTU">
+		<property name="ocompany"></property>
+		<property name="ocemail"></property>
+		<property name="octc" type="double"></property>
+		
+		</subclass>
+
+	</class>
+</hibernate-mapping>
